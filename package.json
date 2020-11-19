@@ -1,0 +1,23 @@
+{
+  "name": "Template-Engine-Employee-Summary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "htmlRendered.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrjacoughlin/Template-Engine-Employee-Summary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrjacoughlin/Template-Engine-Employee-Summary/issues"
+  },
+  "homepage": "https://github.com/mrjacoughlin/Template-Engine-Employee-Summary#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
+}
