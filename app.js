@@ -9,8 +9,64 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-const { type } = require("os");
-const Choice = require("inquirer/lib/objects/choice");
+const { measureMemory } = require("vm");
+
+const teamMember =[]
+const idArray =[]
+
+function appMenu(){
+
+  function createManager(){
+    console.log("Please Build Your Team")
+    inquire.prompt([
+      {
+        type:"input",
+        name: "managerName",
+        message: "What Is Your Managers Name",
+        validate: answer =>{
+          if (answer !== ""){
+            return true;
+          }
+          return "Please Enter At Least One Character";
+        }
+      },
+      {
+        type:"input",
+        name:"manager Id",
+        message:"What's your Manager's ID?",
+        validate: answer =>{
+          const pass =answer.match(
+            /^[1-9]\d*$/
+          );
+          if (pass){
+            return true;
+          }       
+          return "PLease Enter A Positive Number Greater Than Zero";
+         }
+      },
+      {
+        type:"input",
+        name: "MangerEmail",
+        message:"What Is Your Manager's Office Number?",
+        validate: answer=>{
+          const pass =answer.match(
+            /^[1-9]\d*$/
+          )
+          if(pass){
+            return true
+          }
+          return "PLease Enter A Positive Number Greater Than Zero"
+        }
+      }
+    ])
+  }
+}
+
+
+
+
+// const { type } = require("os");
+// const Choice = require("inquirer/lib/objects/choice");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
