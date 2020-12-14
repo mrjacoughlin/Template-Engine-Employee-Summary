@@ -105,6 +105,71 @@ function appMenu(){
     });
   }
 
+  function addEngineer(){
+    inquirer.prompt([
+      {
+        type:"input",
+        name:"engineerName",
+        message:"What Is Your Engineer's Name?",
+        validate: answer => {
+          if (answer !== ""){
+            return true
+          }
+          return "PLease Enter One Character";
+        }
+      },
+      {
+        type:"input",
+        name:"engineerId",
+        message: "What's Your Engineer Id?",
+        validate:answer => {
+          const pass = answer.match(
+            /^[1-9]\d*$/
+          );
+          if (pass){
+            if(idArray.includes(answer)){
+              return "This Id Has Been Taken.Please Enter A Different Number";
+            } else{
+              return true
+            }
+          }
+          return "Please Enter A Positive Number";
+        }
+
+      },
+      {
+        type:"input",
+        name:"engineerEmail",
+        message:"What's Your Engineer's Email?",
+        validate: answer =>{
+          const pass =answer.match(
+            /\S+@\S+\.\S+/
+          );
+          if(pass){
+            return true;
+          }
+          return "Please Enter A Valid Email Address";
+        }
+      },
+      {
+        type:"input",
+        name:"engineerGithub",
+        message:"What's Your Engineer's Github Username?",
+        validate: answer =>{
+          if (answer !== "") {
+            return true;
+          }
+          return "PLease Enter One Character"
+        }
+      }
+    ]).then(answers =>{
+      const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+      teamMember.push(engineer);
+      idArray.push(answers.engineerId);
+      createTeam();
+    });
+  }
+
   
 }
 
