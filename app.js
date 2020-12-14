@@ -47,7 +47,7 @@ function appMenu(){
       {
         type:"input",
         name:"managerEmail",
-        message: "What Is Your Manager's Email?"
+        message: "What Is Your Manager's Email?",
         validate: answer => {
           const pass = answer.match(
             /|S+@\S+\.\S+/
@@ -72,7 +72,37 @@ function appMenu(){
           return "PLease Enter A Positive Number Greater Than Zero";
         }
       }
-    ])
+    ]).then(answers => {
+      const manger = new Manager(answers.managerName, answers.managerId,answers.managerEmail, answers.managerOfficeNumber);
+      teamMemeber.push(manager);
+      idArray.push(answers.managerId);
+      createTeam();
+    });
+  }
+  function createTeam(){
+    inquire.prompt([
+      {
+        type:"list",
+        name:"memberChoice",
+        message:"Which Type Of Team Member Would You Like To Add?",
+        choices: [
+          "Engineer",
+          "Intern",
+          "i Dont Want To Add Any More Members"
+        ]
+      }
+    ]).then(userChoice => {
+      switch(userChoice.memberChoice){
+        case "Engineer":
+          addEngineer();
+          break;
+          case "Intern":
+            addIntern();
+            break;
+            default:
+              buildTeam();
+      }
+    })
   }
 }
 
