@@ -233,7 +233,7 @@ function appMenu() {
           answers.internEmail,
           answers.internSchool
         );
-        teamMember.push(intern);
+        teamMembers.push(intern);
         idArray.push(answers.internId);
         createTeam();
       });
