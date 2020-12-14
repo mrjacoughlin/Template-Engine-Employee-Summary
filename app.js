@@ -55,6 +55,63 @@ class Manager {
     ]);
   }
 }
+class Engineer {
+    Engineer() {
+      inquirer.prompt([
+        {
+          type: "input",
+          name: "name",
+          message: "What is the Managers Name?",
+        },
+        {
+          type: "input",
+          name: "Email",
+          message: "PLease provide your email address",
+        },
+  
+        {
+          type: "checkbox",
+          name: "id number",
+          message: "PLease Select your id number",
+          choices: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        },
+        {
+          type: "input",
+          name: "office Number",
+          message: "PLease Enter your office number",
+        },
+      ]);
+    }
+  }
+
+  class intern {
+    Intern() {
+      inquirer.prompt([
+        {
+          type: "input",
+          name: "name",
+          message: "What is the Managers Name?",
+        },
+        {
+          type: "input",
+          name: "Email",
+          message: "PLease provide your email address",
+        },
+  
+        {
+          type: "checkbox",
+          name: "id number",
+          message: "PLease Select your id number",
+          choices: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        },
+        {
+          type: "input",
+          name: "office Number",
+          message: "PLease Enter your office number",
+        },
+      ]);
+    }
+  }
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
