@@ -46,7 +46,21 @@ function appMenu(){
       },
       {
         type:"input",
-        name: "MangerEmail",
+        name:"managerEmail",
+        message: "What Is Your Manager's Email?"
+        validate: answer => {
+          const pass = answer.match(
+            /|S+@\S+\.\S+/
+          );
+          if(pass){
+            return true
+          }
+          return " PLease Enter A Valid Email Address";
+        }
+      },
+      {
+        type:"input",
+        name: "MangerOfficeNumber",
         message:"What Is Your Manager's Office Number?",
         validate: answer=>{
           const pass =answer.match(
@@ -55,7 +69,7 @@ function appMenu(){
           if(pass){
             return true
           }
-          return "PLease Enter A Positive Number Greater Than Zero"
+          return "PLease Enter A Positive Number Greater Than Zero";
         }
       }
     ])
